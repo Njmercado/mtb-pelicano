@@ -1,0 +1,11 @@
+<div class="main flex flex-col center">
+  <div>Login</div>
+  <div id="loginForm" class="card flex flex-col center bg-blue">
+    <input class="input" [(ngModel)]="email" placeholder="email">
+    <input type="password" class="input" [(ngModel)]="password" placeholder="password">
+    <div class="flex flex-row">
+      <div class="btn" style="margin: 32px 4px 16px 4px" (click)="verifyInformation()">log in</div>
+      <div class="btn" style="margin: 32px 4px 16px 4px" routerLink="/signup" routerLinkActive="active">signup</div>
+    </div>
+  </div>
+</div>
