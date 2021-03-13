@@ -8,4 +8,5 @@
       <div class="btn" style="margin: 32px 4px 16px 4px" routerLink="/signup" routerLinkActive="active">signup</div>
     </div>
   </div>
+  <div *ngIf="error" style="margin-top: 15px; color: red">{{errorMessage}}</div>
 </div>
