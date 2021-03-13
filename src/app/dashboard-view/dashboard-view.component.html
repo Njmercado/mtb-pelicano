@@ -1,14 +1,44 @@
-<div class="main center flex flex-col">
-  <div class="btn" style="background-color: green; color: white">create charge</div>
-  <div class="card" style="margin-top: 30px">
-    <div *ngFor="let charge of charges; index as i" class="flex flex-row center">
-      <div class="card flex flex-row">
-        <div>{{charge.email}}</div>|
-        <div>{{charge.charge_type}}</div>|
-        <div>{{charge.charge_date}}</div>|
-        <div>{{charge.description}}</div>
+<div>
+  <div class="flex flex-col center relative font" style="height: 25vh">
+    <div class="signup-button" (click)="logOut()">log out</div>
+    <input
+      type="text"
+      class="input"
+      style="width: 50%; height: 20%"
+      placeholder="filter"
+    />
+  </div>
+  <div class="main font flex flex-col" style="height: 70vh; align-items: center">
+    <div class="card table-header">
+      <div>email</div>
+      <div>charge type</div>
+      <div>charge date</div>
+      <div>description</div>
+    </div>
+    <div
+      *ngFor="let charge of charges; index as i"
+      style="width: 100%; justify-content: center; margin-top: 16px;"
+      class="flex flex-row"
+      id="table-row"
+    >
+      <div class="card table-header" style="position: relative">
+        <div>{{ charge.email }}</div>
+        <div>{{ charge.charge_type }}</div>
+        <div>{{ charge.charge_date }}</div>
+        <div>{{ charge.description }}</div>
+        <div
+          id="table-delete"
+          *ngIf="role === 'admin'"
+          class="btn"
+          style="background-color: red; color: white"
+          (click)="deleteCharge(charge)"
+        >
+          delete
+        </div>
       </div>
-      <div *ngIf="role === 'admin'" class="btn" style="background-color: red; color: white; margin: 2px 1px 3px 12px" (click)="deleteCharge(charge)">delete</div>
     </div>
   </div>
+</div>
+<div class="btn rounded fixed cursor-pointer create-charge bottom-right">
+  <div class="flex flex-column center">+</div>
 </div>

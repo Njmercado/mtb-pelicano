@@ -1,3 +1,4 @@
+import { Router } from '@angular/router'
 import { Component, OnInit } from '@angular/core';
 import Charge from '../../utils/charges'
 const charge = new Charge('http://localhost:3000/charge')
@@ -9,11 +10,17 @@ const charge = new Charge('http://localhost:3000/charge')
 })
 export class DashboardViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.role = localStorage.getItem("role")
-    this.charges = JSON.parse(localStorage.getItem("charges"))
+    const token = localStorage.getItem("token")
+    if(token) {
+      this.role = localStorage.getItem("role")
+      this.charges = JSON.parse(localStorage.getItem("charges"))
+      localStorage.setItem("charges", JSON.stringify(this.charges))
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
 
   role: string = ""
@@ -29,4 +36,11 @@ export class DashboardViewComponent implements OnInit {
       this.charges = this.charges.filter(item => item.charge_id !== data.charge_id)
     }
   }
+
+  logOut() {
+    this.router.navigate(['/login'])
+    localStorage.removeItem("token")
+  }
+
+
 }
