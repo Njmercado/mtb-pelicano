@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 import { RegisterViewComponent } from './register-view/register-view.component';
 import { DashboardViewComponent } from './dashboard-view/dashboard-view.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginViewComponent,
     RegisterViewComponent,
-    DashboardViewComponent
+    DashboardViewComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
