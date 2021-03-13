@@ -1,0 +1,39 @@
+  .main{
+    width: 100%;
+    height: 100vh;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .flex-row { flex-direction: row; }
+  .flex-col { flex-direction: column; }
+  .flex { display: flex; }
+  .center { justify-content: center; align-items: center; }
+
+  .card {
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px gray;
+  }
+
+  .bg-blue {
+    background-color: blue;
+    color: white;
+  }
+
+  .btn {
+    border-radius: 4px;
+    border: none;
+    background: white;
+    color: blue;
+    padding: 4px 4px;
+    margin-top: 32px;
+    cursor: pointer;
+  }
+
+  .input {
+    border-radius: 4px;
+    border: none;
+    margin-top: 5px;
+    padding: 3px 5px;
+  }
