@@ -7,12 +7,9 @@ export default class User {
 
   async login(data) {
     const config = {
-      method: 'get',
+      method: 'post',
       url: this.url,
-      data: {
-        email: data.email,
-        password: data.password
-      },
+      data,
       headers: {
         "Content-Type": "application/json"
       }
@@ -20,4 +17,18 @@ export default class User {
     const result = await axios(config)
     return result.data
   }
+
+  async signUp(data) {
+    const config = {
+      method: 'post',
+      url: this.url,
+      data,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    const result = await axios(config)
+    return result.data
+  }
+
 }
